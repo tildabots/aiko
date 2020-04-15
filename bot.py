@@ -15,8 +15,8 @@ if __name__ == '__main__':
         for ext in exts:
             if ext.endswith('.py'):
                 try:
-                    bot.log.info(f'attempting to load {ext}')
                     ext = ext.replace('.py', '')
+                    bot.log.info(f'attempting to load {ext}')
                     bot.load_extension(f'ext.{ext}')
                 except Exception:
                     bot.log.error(f'failed to load {ext}', exc_info=True)
