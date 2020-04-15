@@ -5,9 +5,9 @@ import os
 
 config = Config('config.yaml').config
 help_command = commands.help.DefaultHelpCommand(dm_help=None)
-bot = Mizaki(command_prefix=commands.when_mentioned_or(config['prefix']),
-             description='osu! focused bot',
-             help_command=help_command)
+bot = Aiko(command_prefix=commands.when_mentioned_or(config['prefix']),
+           description='osu! focused bot',
+           help_command=help_command)
 
 
 if __name__ == '__main__':

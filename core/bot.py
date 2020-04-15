@@ -6,15 +6,15 @@ import sys
 import discord
 
 
-class Mizaki(commands.AutoShardedBot):
+class Aiko(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.config = Config('config.yaml').config
         StreamHandler(sys.stdout).push_application()
-        self.log = Logger('Mizaki')
+        self.log = Logger('Aiko')
 
     async def on_ready(self):
-        self.log.info(f'Mizaki is ready! {len(self.bot.guilds)} servers')
+        self.log.info(f'Aiko is ready! {len(self.bot.guilds)} servers')
         await self.bot.change_presence(activity=discord.Streaming(
             name=f'osu! // {get_prefix(self.config)}help',
             url='https://twitch.tv/monstercat'))
