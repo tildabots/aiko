@@ -1,5 +1,5 @@
 def get_prefix(config):
-    if config['bot']['prefix']:
-        return config['bot']['prefix']
+    if config['prefix']:
+        return config['prefix']
     else:
         return '^'  # default

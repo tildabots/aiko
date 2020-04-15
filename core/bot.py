@@ -14,8 +14,8 @@ class Aiko(commands.AutoShardedBot):
         self.log = Logger('Aiko')
 
     async def on_ready(self):
-        self.log.info(f'Aiko is ready! {len(self.bot.guilds)} servers')
-        await self.bot.change_presence(activity=discord.Streaming(
+        self.log.info(f'Aiko is ready! {len(self.guilds)} servers')
+        await self.change_presence(activity=discord.Streaming(
             name=f'osu! // {get_prefix(self.config)}help',
             url='https://twitch.tv/monstercat'))
 
