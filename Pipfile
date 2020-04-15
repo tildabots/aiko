@@ -10,6 +10,7 @@ discord-py = "*"
 osuapi = "*"
 ruamel-yaml = "*"
 logbook = "*"
+jishaku = "*"
 
 [requires]
 python_version = "3.8"
