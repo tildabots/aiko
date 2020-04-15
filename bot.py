@@ -1,5 +1,5 @@
 from discord.ext import commands
-from core.bot import Mizaki
+from core.bot import Aiko
 from core.config import Config
 import os
 
