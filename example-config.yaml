@@ -1,3 +1,4 @@
 prefix: "-"
 token: "" # Discord token
 osuapi: "" # osu! API key
+redis_url: "redis://localhost" # Used for KV storage

@@ -5,6 +5,8 @@ from logbook import Logger, StreamHandler
 import sys
 import discord
 from osuapi import OsuApi, AHConnector
+import aioredis
+import asyncio
 
 
 class Aiko(commands.AutoShardedBot):
@@ -14,6 +16,9 @@ class Aiko(commands.AutoShardedBot):
         StreamHandler(sys.stdout).push_application()
         self.log = Logger('Aiko')
         self.osuapi = OsuApi(self.config['osuapi'], connector=AHConnector())
+        self.kv = asyncio.gather(
+            aioredis.create_redis_pool(self.config['redis_url'])
+        )
 
     async def on_ready(self):
         self.log.info(f'Aiko is ready! {len(self.guilds)} servers')

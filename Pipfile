@@ -11,6 +11,7 @@ osuapi = "*"
 ruamel-yaml = "*"
 logbook = "*"
 jishaku = "*"
+aioredis = "*"
 
 [requires]
 python_version = "3.8"
