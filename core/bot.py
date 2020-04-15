@@ -4,6 +4,7 @@ from core.config import Config
 from logbook import Logger, StreamHandler
 import sys
 import discord
+from osuapi import OsuApi, AHConnector
 
 
 class Aiko(commands.AutoShardedBot):
@@ -12,6 +13,7 @@ class Aiko(commands.AutoShardedBot):
         self.config = Config('config.yaml').config
         StreamHandler(sys.stdout).push_application()
         self.log = Logger('Aiko')
+        self.osuapi = OsuApi(self.config['osuapi'], connector=AHConnector())
 
     async def on_ready(self):
         self.log.info(f'Aiko is ready! {len(self.guilds)} servers')
