@@ -1,6 +1,6 @@
 from discord.ext import commands
 from utils.prefix import get_prefix
-from utils.config import Config
+from core.config import Config
 from logbook import Logger, StreamHandler
 import sys
 import discord

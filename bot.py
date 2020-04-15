@@ -1,6 +1,6 @@
 from discord.ext import commands
 from core.bot import Mizaki
-from utils.config import Config
+from core.config import Config
 import os
 
 config = Config('config.yaml').config
