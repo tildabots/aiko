@@ -1,6 +1,7 @@
 from discord.ext import commands
 from utils.cog import Cog
 import discord
+from osuapi.enums import OsuMode
 
 
 class Profile(Cog):
@@ -9,7 +10,8 @@ class Profile(Cog):
         pass
 
     @commands.command()
-    async def profile(self, ctx, user: discord.Member or str):
+    async def profile(self, ctx, user: discord.Member or str,
+                      mode: OsuMode = 0):
         pass
 
 
