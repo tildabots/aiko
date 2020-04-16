@@ -6,7 +6,11 @@ import sys
 import discord
 from osuapi import OsuApi, AHConnector
 import aioredis
-import asyncio
+
+
+async def _connect_redis(self):
+    pool = await aioredis.create_redis_pool(self.config['redis_url'])
+    return pool
 
 
 class Aiko(commands.AutoShardedBot):
@@ -16,7 +20,7 @@ class Aiko(commands.AutoShardedBot):
         StreamHandler(sys.stdout).push_application()
         self.log = Logger("Aiko")
         self.osuapi = OsuApi(self.config["osuapi"], connector=AHConnector())
-        self.kv = asyncio.gather(aioredis.create_redis_pool(self.config["redis_url"]))
+        self.kv = self.loop.run_until_complete(_connect_redis(self))
 
     async def on_ready(self):
         self.log.info(f"Aiko is ready! {len(self.guilds)} servers")
