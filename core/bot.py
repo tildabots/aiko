@@ -12,19 +12,20 @@ import asyncio
 class Aiko(commands.AutoShardedBot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.config = Config('config.yaml').config
+        self.config = Config("config.yaml").config
         StreamHandler(sys.stdout).push_application()
-        self.log = Logger('Aiko')
-        self.osuapi = OsuApi(self.config['osuapi'], connector=AHConnector())
-        self.kv = asyncio.gather(
-            aioredis.create_redis_pool(self.config['redis_url'])
-        )
+        self.log = Logger("Aiko")
+        self.osuapi = OsuApi(self.config["osuapi"], connector=AHConnector())
+        self.kv = asyncio.gather(aioredis.create_redis_pool(self.config["redis_url"]))
 
     async def on_ready(self):
-        self.log.info(f'Aiko is ready! {len(self.guilds)} servers')
-        await self.change_presence(activity=discord.Streaming(
-            name=f'osu! // {get_prefix(self.config)}help',
-            url='https://twitch.tv/monstercat'))
+        self.log.info(f"Aiko is ready! {len(self.guilds)} servers")
+        await self.change_presence(
+            activity=discord.Streaming(
+                name=f"osu! // {get_prefix(self.config)}help",
+                url="https://twitch.tv/monstercat",
+            )
+        )
 
     async def on_message(self, message):
         if message.author.bot:

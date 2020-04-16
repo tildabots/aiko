@@ -10,8 +10,7 @@ class Profile(Cog):
         pass
 
     @commands.command()
-    async def profile(self, ctx, user: discord.Member or str,
-                      mode: OsuMode = 0):
+    async def profile(self, ctx, user: discord.Member or str, mode: OsuMode = 0):
         pass
 
 
