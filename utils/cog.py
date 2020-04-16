@@ -11,3 +11,7 @@ class Cog(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+
+    async def lookup_user(self, id: int):
+        key = await self.bot.kv.get(id)
+        return key
