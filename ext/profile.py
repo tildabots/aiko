@@ -11,7 +11,6 @@ class Profile(Cog):
 
     @commands.command()
     async def osu(self, ctx, user: discord.Member, mode: OsuMode = 0):
-        print(dir(self))
         key = await self.bot.kv.get(user.id)
         if key is None:
             return await ctx.send(
