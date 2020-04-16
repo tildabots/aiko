@@ -3,6 +3,12 @@ from utils.errors import ConfigError
 
 
 class Config:
+    """
+    A reloadable config manager. Uses YAML to store information.
+
+    Parameters:
+    file - Name of config file to open
+    """
     def __init__(self, file):
         self.reader = YAML(typ="safe")
         self.file = file  # for usage in loading/reloading

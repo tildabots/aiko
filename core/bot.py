@@ -9,11 +9,23 @@ import aioredis
 
 
 async def _connect_redis(self):
+    """
+    Connect to a Redis URL stored in config.
+
+    Parameters:
+    self - Aiko instance which contains configuration variables
+    """
     pool = await aioredis.create_redis_pool(self.config['redis_url'])
     return pool
 
 
 class Aiko(commands.AutoShardedBot):
+    """
+    Aiko's bot class.
+    Subclass of discord.ext.commands.AutoShardedBot.
+
+    See discord.ext.commands documentation for parameters
+    """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.config = Config("config.yaml").config
