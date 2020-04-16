@@ -10,8 +10,14 @@ class Profile(Cog):
         pass
 
     @commands.command()
-    async def profile(self, ctx, user: discord.Member or str, mode: OsuMode = 0):
-        pass
+    async def osu(self, ctx, user: discord.Member, mode: OsuMode = 0):
+        async with ctx.bot.kv.get(user.id) as key:
+            if key is None:
+                return await ctx.send(
+                    "I do not have you in the database."
+                    + f' Use `{self.bot.config["prefix"]}profile`'
+                    + " to begin setup."
+                )
 
 
 def setup(bot):

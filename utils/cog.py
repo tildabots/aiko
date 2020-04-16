@@ -8,5 +8,6 @@ class Cog(commands.Cog):
     Parameters:
     bot - Instance of the bot
     """
+
     def __init__(self, bot):
         self.bot = bot

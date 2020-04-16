@@ -15,7 +15,7 @@ async def _connect_redis(self):
     Parameters:
     self - Aiko instance which contains configuration variables
     """
-    pool = await aioredis.create_redis_pool(self.config['redis_url'])
+    pool = await aioredis.create_redis_pool(self.config["redis_url"])
     return pool
 
 
@@ -26,6 +26,7 @@ class Aiko(commands.AutoShardedBot):
 
     See discord.ext.commands documentation for parameters
     """
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.config = Config("config.yaml").config
